@@ -58,7 +58,7 @@
                                         <span class="info-box-text"><i><b>Fiebre</b></i></span>
                                         <span class="info-box-number"></span>
                                     </div>
-                                    <button type="button" class="btn btn-sintoma bg-gradient-success" value="1"><b>INGRESAR</b></button>
+                                    <button type="button" class="btn btn-sintoma bg-gradient-info" value="1"><b>INGRESAR</b></button>
                                 </div>
                             </div>
 
@@ -70,7 +70,7 @@
                                         <span class="info-box-text"><i><b>Malestar</b></i></span>
                                         <span class="info-box-number"></span>
                                     </div>
-                                    <button type="button" class="btn btn-sintoma bg-gradient-success" value="4"><b>INGRESAR</b></button>
+                                    <button type="button" class="btn btn-sintoma bg-gradient-info" value="4"><b>INGRESAR</b></button>
                                 </div>
                             </div>
 
@@ -82,7 +82,7 @@
                                         <span class="info-box-text"><i><b>Dolor de garganta</b></i></span>
                                         <span class="info-box-number"></span>
                                     </div>
-                                    <button type="button" class="btn btn-sintoma bg-gradient-success" value="3"><b>INGRESAR</b></button>
+                                    <button type="button" class="btn btn-sintoma bg-gradient-info" value="3"><b>INGRESAR</b></button>
                                 </div>
                             </div>
 
@@ -94,7 +94,7 @@
                                         <span class="info-box-text"><i><b>Tos</b></i></span>
                                         <span class="info-box-number"></span>
                                     </div>
-                                    <button type="button" class="btn btn-sintoma bg-gradient-success" value="2"><b>INGRESAR</b></button>
+                                    <button type="button" class="btn btn-sintoma bg-gradient-info" value="2"><b>INGRESAR</b></button>
                                 </div>
                             </div>
                         </div>

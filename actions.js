@@ -76,11 +76,4 @@ $(document).ready(function () {
     $("#enfermedad").val("");
     $("#tratamiento").val("");
   });
-
-
-
-
-
-
-
 });
