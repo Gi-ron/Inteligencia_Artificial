@@ -1,89 +1,87 @@
-//Array que guarda las enfermedades segun el sintoma
-var agenda = []; //Array que guarda el elemento mas repetido 
-var contador1 = 0;
-var contador2 = 0;
+
+var agenda = []; 
+var gripa = 0; // Agenda de valores difusos de sintomas que llevan a gripa
+var faringitis = 0; // Agenda de valores difusos de sintomas que llevan a faringitis
 
 $(document).ready(function () {
+    //BOTON PARA AÑADIR SINTOMAS
+    $(".btn-sintoma").click(function (e) {
+        e.preventDefault();
 
-  $(".btn-sintoma").click(function (e) {
-    e.preventDefault();
+        let consecuente; //Variable que guarda el sintoma seleccionado
+        consecuente = $(this).val();
 
-    let consecuente; //Variable que guarda el sintoma seleccionado
-    consecuente = $(this).val();
-
-    let datos = new FormData();
-    datos.append("verEnfermedad", "ok");
-    datos.append("id", consecuente);
-    $.ajax({
-      type: "POST",
-      url: "ajax.php",
-      data: datos,
-      cache: false,
-      contentType: false,
-      processData: false,
-      dataType: "json",
-      success: function (response) {
-        agenda.push(response[0].enfermedad);
-      },
+        let datos = new FormData();
+        datos.append("verEnfermedad", "ok");
+        datos.append("id", consecuente);
+        $.ajax({
+            type: "POST",
+            url: "ajax.php",
+            data: datos,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function (response) {
+                if (response[0].enfermedad == "gripa") {
+                    if (gripa == 0) {
+                        gripa = parseFloat(response[0].valor);
+                    } else {
+                        gripa =
+                            gripa + (1 - gripa) * parseFloat(response[0].valor);
+                    }
+                } else if (response[0].enfermedad == "faringitis") {
+                    if (faringitis == 0) {
+                        faringitis = parseFloat(response[0].valor);
+                    } else {
+                        faringitis =
+                            faringitis +
+                            (1 - faringitis) * parseFloat(response[0].valor);
+                    }
+                }
+            },
+        });
     });
-  });
-
-  $(".btn-asintomas").on("click", function () {
-    contador1 = 0;
-    contador2 = 0;
-
-    for (let index = 0; index < agenda.length; index++) {
-        if(agenda[index] == "gripa"){
-
-          contador1 = contador1 + 1;
-
-        } else{
-
-          contador2 = contador2 + 1;
+    //BOTON PARA DAR EL DIAGNOSTICO
+    $(".btn-asintomas").on("click", function () {
+        if (gripa > faringitis) {
+            Swal.fire({
+                icon: "success",
+                text: "Paciente diagnosticado",
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar",
+                closeOnConfirm: false,
+            });
+            $("#enfermedad").val("Gripa -" + " Porcentaje: " + gripa + "%" + " || " + " Faringitis porcentaje: " + faringitis + "%");
+            $("#tratamiento").val("Analgésico");
+        } else if (faringitis > gripa) {
+            Swal.fire({
+                icon: "success",
+                text: "Paciente diagnosticado",
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar",
+                closeOnConfirm: false,
+            });
+            $("#enfermedad").val("Faringitis -" + " Porcentaje: " + faringitis + "%" + " ||"  + " Gripa porcentaje: " + gripa + "%");
+            $("#tratamiento").val("Antiinflamatorio");
+        } else {
+            Swal.fire({
+                icon: "warning",
+                text: "Paciente no diagnosticado",
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar",
+                closeOnConfirm: false,
+            });
+            $("#enfermedad").val("Las probabilidades de que la enfermedad sea gripa o faringitis son las mismas");
+            $("#tratamiento").val("Realice el diagnostico de nuevo");
         }
-    }
-
-    if (contador1>contador2) {
-
-      Swal.fire({
-        icon: "success",
-        text: "Paciente diagnosticado",
-        showConfirmButton: true,
-        confirmButtonText: "Cerrar",
-        closeOnConfirm: false,
-      });
-      $("#enfermedad").val("Gripa");
-      $("#tratamiento").val("Analgésico");     
-    }else{
-
-      Swal.fire({
-        icon: "success",
-        text: "Paciente diagnosticado",
-        showConfirmButton: true,
-        confirmButtonText: "Cerrar",
-        closeOnConfirm: false,
-      });
-      $("#enfermedad").val("Faringitis");
-      $("#tratamiento").val("Antiinflamatorio");
-    }
-  });
-
-  $(".btn-reset").on('click', function () {
-
-    contador1 = 0;
-    contador2 = 0;
-    agenda.length = 0;
-    $("#enfermedad").val("");
-    $("#tratamiento").val("");
-  });
-
-  $.ajax({
-    type: "method",
-    url: "url",
-    data: "data",
-    dataType: "dataType",
-    success: function (response) {
-      
-    }
-  });
+       
+    });
+    //REINICIAR VALORES
+    $(".btn-reset").on("click", function () {
+        gripa = 0;
+        faringitis = 0;
+        $("#enfermedad").val("");
+        $("#tratamiento").val("");
+    });
 });

@@ -19,4 +19,19 @@ class ModeloEnfermedades
          $stmt->closeCursor();
          return $retorno;
     }
+
+    static public function mdlMostrarValorDifuso($id)
+    {
+
+        $stmt = Conexion::conectar()->prepare("SELECT enfer.nombre AS enfermedad, r.v_difuso as valor FROM reglas r
+                                               LEFT JOIN consecuente enfer ON r.id_consecuente = enfer.id_consecuente
+                                               LEFT JOIN hechos hecho ON r.id_antecedente = hecho.idhechos
+                                               WHERE hecho.idhechos = :id");
+
+         $stmt->bindParam(":id",  $id, PDO::PARAM_INT);
+         $stmt->execute();
+         $retorno = $stmt->fetchAll();
+         $stmt->closeCursor();
+         return $retorno;
+    }
 }

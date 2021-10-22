@@ -28,7 +28,7 @@
     <script src="views/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 </head>
 
-<body style="background-color:#66C7F4;">
+<body style="background-color:#ccff99;">
 
     <div class="container-fluid">
 
@@ -42,18 +42,18 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title"><b>Sistema experto basico 1.0 / sistema medico de tratamientos</b></h5>
+                        <h1 class="card-title"><b>SISTEMA EXPERTO DIFUSO BASICO</b></h1>
                     </div>
                     <div class="card-body">
                         <h5><i><b>Síntomas</b></i></h5>
                         <p>Seleccione los síntomas</p>
 
+                        <hr class="my-4">
+
                         <div class="row">
 
                             <div class="col-12 col-sm-6 col-md-3">
                                 <div class="info-box mb-3">
-                                    <span class="info-box-icon bg-danger elevation-1"></span>
-
                                     <div class="info-box-content">
                                         <span class="info-box-text"><i><b>Fiebre</b></i></span>
                                         <span class="info-box-number"></span>
@@ -64,8 +64,6 @@
 
                             <div class="col-12 col-sm-6 col-md-3">
                                 <div class="info-box mb-3">
-                                    <span class="info-box-icon bg-danger elevation-1"></span>
-
                                     <div class="info-box-content">
                                         <span class="info-box-text"><i><b>Malestar</b></i></span>
                                         <span class="info-box-number"></span>
@@ -76,8 +74,6 @@
 
                             <div class="col-12 col-sm-6 col-md-3">
                                 <div class="info-box mb-3">
-                                    <span class="info-box-icon bg-danger elevation-1"></span>
-
                                     <div class="info-box-content">
                                         <span class="info-box-text"><i><b>Dolor de garganta</b></i></span>
                                         <span class="info-box-number"></span>
@@ -88,8 +84,6 @@
 
                             <div class="col-12 col-sm-6 col-md-3">
                                 <div class="info-box mb-3">
-                                    <span class="info-box-icon bg-danger elevation-1"></span>
-
                                     <div class="info-box-content">
                                         <span class="info-box-text"><i><b>Tos</b></i></span>
                                         <span class="info-box-number"></span>
@@ -102,16 +96,16 @@
                         <hr class="my-4">
 
                         <button type="button" class="btn btn-lg btn-asintomas btn-success" value="0">Diagnóstico</button>
-                        <button type="button" class="btn btn-lg btn-reset btn-danger" value="0">reset</button>
+                        <button type="button" class="btn btn-lg btn-reset btn-danger" value="0">Reiniciar Diagnóstico</button>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-header">
-                        Enfermedad / consecuente
+                        Enfermedad / Consecuente
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title"><i><b>Diagnostico general</b></i></h1>
+                        <h1 class="card-title"><i><b>DIAGNÓSTICO GENERAL</b></i></h1>
                         <p class="card-text" id="texto">
 
                             <hr class="my-4">
@@ -119,12 +113,12 @@
                             
                             <div class="form-group">
                                 <label for="my-input">Enfermedad</label>
-                                <input  class="form-control" type="text" name="Enfermedad" id="enfermedad">
+                                <input  class="form-control" type="text" name="Enfermedad" id="enfermedad" readonly>
                             </div>
                             
                             <div class="form-group">
                                 <label for="my-input">Tratamiento</label>
-                                <input id="tratamiento" class="form-control" type="text" >
+                                <input id="tratamiento" class="form-control" type="text" readonly>
                             </div>
 
                         </p>

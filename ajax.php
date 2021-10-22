@@ -8,7 +8,7 @@ class ajaxEnfermedad
 {
     static public function mostrarEnfermedad($id)
     {
-        $respuesta = ModeloEnfermedades::mdlMostrarEnfermedad($id);
+        $respuesta = ModeloEnfermedades::mdlMostrarValorDifuso($id);
         echo json_encode($respuesta);
     } 
 }
