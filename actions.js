@@ -76,4 +76,14 @@ $(document).ready(function () {
     $("#enfermedad").val("");
     $("#tratamiento").val("");
   });
+
+  $.ajax({
+    type: "method",
+    url: "url",
+    data: "data",
+    dataType: "dataType",
+    success: function (response) {
+      
+    }
+  });
 });
