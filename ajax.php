@@ -4,15 +4,15 @@
 require_once 'modelo.php';
 
 
-class ajaxEnfermedad
+class ajaxNodo
 {
-    static public function mostrarEnfermedad($id)
+    static public function mostrarNodo($nodo)
     {
-        $respuesta = ModeloEnfermedades::mdlMostrarValorDifuso($id);
+        $respuesta = ModeloArbol::mdlNodo($nodo);
         echo json_encode($respuesta);
     } 
 }
 
-if (isset($_REQUEST['verEnfermedad']) && $_REQUEST['verEnfermedad'] == "ok") {
-	ajaxEnfermedad::mostrarEnfermedad($_REQUEST['id']);
+if (isset($_REQUEST['verNodo']) && $_REQUEST['verNodo'] == "ok") {
+	ajaxNodo::mostrarNodo($_REQUEST['nodo']);
 }

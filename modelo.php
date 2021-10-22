@@ -1,37 +1,20 @@
-<?php 
+<?php
 //include_once '../SE1.0/conexion.php';
 require_once 'conexion.php';
 
 
-class ModeloEnfermedades
+class ModeloArbol
 {
-    static public function mdlMostrarEnfermedad($id)
+    static public function mdlNodo($nodo)
     {
 
-        $stmt = Conexion::conectar()->prepare("SELECT enfer.nombre AS enfermedad FROM reglas r
-                                               LEFT JOIN consecuente enfer ON r.id_consecuente = enfer.id_consecuente
-                                               LEFT JOIN hechos hecho ON r.id_antecedente = hecho.idhechos
-                                               WHERE hecho.idhechos = :id");
+        $stmt = Conexion::conectar()->prepare("SELECT texto,pregunta FROM arbol
+                                               WHERE nodo = :nodo");
 
-         $stmt->bindParam(":id",  $id, PDO::PARAM_INT);
-         $stmt->execute();
-         $retorno = $stmt->fetchAll();
-         $stmt->closeCursor();
-         return $retorno;
-    }
-
-    static public function mdlMostrarValorDifuso($id)
-    {
-
-        $stmt = Conexion::conectar()->prepare("SELECT enfer.nombre AS enfermedad, r.v_difuso as valor FROM reglas r
-                                               LEFT JOIN consecuente enfer ON r.id_consecuente = enfer.id_consecuente
-                                               LEFT JOIN hechos hecho ON r.id_antecedente = hecho.idhechos
-                                               WHERE hecho.idhechos = :id");
-
-         $stmt->bindParam(":id",  $id, PDO::PARAM_INT);
-         $stmt->execute();
-         $retorno = $stmt->fetchAll();
-         $stmt->closeCursor();
-         return $retorno;
+        $stmt->bindParam(":nodo",  $nodo, PDO::PARAM_INT);
+        $stmt->execute();
+        $retorno = $stmt->fetchAll();
+        $stmt->closeCursor();
+        return $retorno;
     }
 }

@@ -38,114 +38,87 @@
             </div>
         </div>
 
+        <?php $hoy = getdate(); ?>
+
         <div class="row">
             <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                        <h1 class="card-title"><b>SISTEMA EXPERTO DIFUSO BASICO</b></h1>
+                <div class="card direct-chat direct-chat-primary">
+                    <div class="card-header ui-sortable-handle" style="cursor: move;">
+                        <h3 class="card-title">Sistema predictivo (CHAT)</h3>
                     </div>
+                    <!-- /.card-header -->
                     <div class="card-body">
-                        <h5><i><b>Síntomas</b></i></h5>
-                        <p>Seleccione los síntomas</p>
+                        <div class="direct-chat-messages">
 
-                        <hr class="my-4">
-
-                        <div class="row">
-
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <div class="info-box mb-3">
-                                    <div class="info-box-content">
-                                        <span class="info-box-text"><i><b>Fiebre</b></i></span>
-                                        <span class="info-box-number"></span>
-                                    </div>
-                                    <button type="button" class="btn btn-sintoma bg-gradient-info" value="1"><b>INGRESAR</b></button>
+                            <input class="form-control" type="hidden" name="nodos" id="nodos" value="1">
+                            
+                            <!-- MENSAJE DEL BOT -->
+                            <div class="direct-chat-msg">
+                                <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-left">Galileo</span>
+                                    <span class="direct-chat-timestamp float-right"><?= print $hoy['month']; print "/" ;print $hoy['mday']; print "/"; print $hoy['year'];?></span>
+                                </div>
+                                <!-- MENSAJE (INGRESAR) -->
+                                <div class="direct-chat-text" id="mensaje">
+                                    ¡Hola!, Por el momento no se nada, ¿Me enseñas algo?
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <div class="info-box mb-3">
-                                    <div class="info-box-content">
-                                        <span class="info-box-text"><i><b>Malestar</b></i></span>
-                                        <span class="info-box-number"></span>
-                                    </div>
-                                    <button type="button" class="btn btn-sintoma bg-gradient-info" value="4"><b>INGRESAR</b></button>
+                            <!-- MENSAJE DE RESPUESTA -->
+                            <div class="direct-chat-msg right">
+                                <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-right">Tú</span>
+                                    <span class="direct-chat-timestamp float-left"></span>
+                                </div>
+                                <!-- MENSAJE (INGRESAR) -->
+                                <div class="direct-chat-text">
+                                    You better believe it!
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <div class="info-box mb-3">
-                                    <div class="info-box-content">
-                                        <span class="info-box-text"><i><b>Dolor de garganta</b></i></span>
-                                        <span class="info-box-number"></span>
-                                    </div>
-                                    <button type="button" class="btn btn-sintoma bg-gradient-info" value="3"><b>INGRESAR</b></button>
+                            <!-- MENSAJE DEL BOT -->
+                            <div class="direct-chat-msg">
+                                <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-left">Galileo</span>
+                                    <span class="direct-chat-timestamp float-right"></span>
+                                </div>
+                             <!-- MENSAJE (INGRESAR) -->
+                                <div class="direct-chat-text">
+                                    Working with AdminLTE on a great new app! Wanna join?
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <div class="info-box mb-3">
-                                    <div class="info-box-content">
-                                        <span class="info-box-text"><i><b>Tos</b></i></span>
-                                        <span class="info-box-number"></span>
-                                    </div>
-                                    <button type="button" class="btn btn-sintoma bg-gradient-info" value="2"><b>INGRESAR</b></button>
+                            <!-- MENSAJE DE RESPUESTA -->
+                            <div class="direct-chat-msg right">
+                                <div class="direct-chat-infos clearfix">
+                                    <span class="direct-chat-name float-right">Tú</span>
+                                    <span class="direct-chat-timestamp float-left"></span>
                                 </div>
+                                <!-- /.direct-chat-img -->
+                                <div class="direct-chat-text">
+                                    I would love to.
+                                </div>
+                                <!-- /.direct-chat-text -->
                             </div>
                         </div>
-
-                        <hr class="my-4">
-
-                        <button type="button" class="btn btn-lg btn-asintomas btn-success" value="0">Diagnóstico</button>
-                        <button type="button" class="btn btn-lg btn-reset btn-danger" value="0">Reiniciar Diagnóstico</button>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        Enfermedad / Consecuente
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title"><i><b>DIAGNÓSTICO GENERAL</b></i></h1>
-                        <p class="card-text" id="texto">
-
-                            <hr class="my-4">
-
-                            
-                            <div class="form-group">
-                                <label for="my-input">Enfermedad</label>
-                                <input  class="form-control" type="text" name="Enfermedad" id="enfermedad" readonly>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <form action="#" method="post">
+                            <div class="input-group">
+                                <input type="text" id="input_entrada" name="input_entrada" placeholder="Escribe un mensaje..." class="form-control">
+                                <span class="input-group-append">
+                                    <button type="button" class="btn btn-primary btn-enviar">Enviar</button>
+                                </span>
                             </div>
-                            
-                            <div class="form-group">
-                                <label for="my-input">Tratamiento</label>
-                                <input id="tratamiento" class="form-control" type="text" readonly>
-                            </div>
-
-                        </p>
+                        </form>
                     </div>
+
                 </div>
-
-
-
-            </div>
-        </div>
-
-
-
-        <div class="content-header">
-            <div class="container-fluid">
-            </div>
-        </div>
-
-        <!-- Main content -->
-        <div class="content">
-            <div class="container-fluid">
             </div>
         </div>
     </div>
-
 </body>
-
 <script src="actions.js"></script>
-
 </html>
