@@ -47,7 +47,8 @@ $(document).ready(function () {
         if (gripa > faringitis) {
             Swal.fire({
                 icon: "success",
-                text: "Paciente diagnosticado",
+                title: "Paciente diagnosticado",
+                text: "Enfermedad: "+"gripa "+gripa+" %",
                 showConfirmButton: true,
                 confirmButtonText: "Cerrar",
                 closeOnConfirm: false,
@@ -57,7 +58,8 @@ $(document).ready(function () {
         } else if (faringitis > gripa) {
             Swal.fire({
                 icon: "success",
-                text: "Paciente diagnosticado",
+                title: "Paciente diagnosticado",
+                text: "Enfermedad: "+"faringitis "+faringitis+" %",
                 showConfirmButton: true,
                 confirmButtonText: "Cerrar",
                 closeOnConfirm: false,
